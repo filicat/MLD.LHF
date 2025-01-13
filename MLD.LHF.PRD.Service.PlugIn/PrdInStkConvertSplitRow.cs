@@ -47,9 +47,9 @@ namespace MLD.LHF.PRD.Service.PlugIn
             long splitNumber = 0;
             //  webapi下推接口中的自定义参数，CustomParams={"FBaseQty":10}
             this.Option.TryGetVariableValue<long>("FRealQty", out splitNumber);
-            this.Option.TryGetVariableValue<string>("labels", out string labelReqStr);
+            this.Option.TryGetVariableValue<JSONArray>("labels", out JSONArray labelJA);
             // 反序列化为 List<Entry>
-            List<LabelReq> labelReqs = JsonConvert.DeserializeObject<List<LabelReq>>(labelReqStr);
+            List<LabelReq> labelReqs = JsonConvert.DeserializeObject<List<LabelReq>>(labelJA.ToJSONString());
             // 将 List<LabelReq> 转换为 Dictionary<int, List<LabelReq>>
             Dictionary<int, List<LabelReq>> groupedDictionary = labelReqs
                 .GroupBy(req => req.EntryId) // 按 EntryId 分组
