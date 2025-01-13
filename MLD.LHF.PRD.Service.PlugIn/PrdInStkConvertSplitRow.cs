@@ -31,9 +31,9 @@ namespace MLD.LHF.PRD.Service.PlugIn
     {
         public class LabelReq
         {
-            public int EntryId { get; set; }
+            public long EntryId { get; set; }
             public string Label { get; set; }
-            public int Qty { get; set; }
+            public decimal Qty { get; set; }
         }
         //控制字段Key和属性集合
         private List<DynamicProperty> _lstProperys = null;
@@ -51,11 +51,13 @@ namespace MLD.LHF.PRD.Service.PlugIn
             // 反序列化为 List<Entry>
             List<LabelReq> labelReqs = JsonConvert.DeserializeObject<List<LabelReq>>(labelJA.ToJSONString());
             // 将 List<LabelReq> 转换为 Dictionary<int, List<LabelReq>>
-            Dictionary<int, List<LabelReq>> groupedDictionary = labelReqs
+            Dictionary<long, List<LabelReq>> labelReqsMap = labelReqs
                 .GroupBy(req => req.EntryId) // 按 EntryId 分组
                 .ToDictionary(group => group.Key, group => group.ToList()); // 转换为字典
             if (splitNumber == 0) return; //分录行拆分数量
             var field = e.TargetBusinessInfo.GetField("FRealQty"); //基本单据数量字段
+            LotField lotField = (LotField) e.TargetBusinessInfo.GetField("FLot");
+
             var entryEntity = field.Entity; //字段所在的单据体
             //得到单据数据包扩展集合
             var billDynObjExs = e.Result.FindByEntityKey("FBillHead");
@@ -71,7 +73,7 @@ namespace MLD.LHF.PRD.Service.PlugIn
                 var entryDynObjs = entryEntity.DynamicProperty.GetValue(billDynObj) as DynamicObjectCollection; //得到字段所在实体的数据包
                 int rowIndex = 0; //分录行索引
                                   //拆分信息；原分录行索引，新增拆分的行数，最后一行值,来源单内码，来源单分录内码
-                Dictionary<int, Tuple<int, decimal, long, long>> dicSplitInfo = new Dictionary<int, Tuple<int, decimal, long, long>>();
+                Dictionary<int, Tuple<int, decimal, long, long, List<LabelReq>>> dicSplitInfo = new Dictionary<int, Tuple<int, decimal, long, long, List<LabelReq>>>();
                 //foreach (var rowObj in entryDynObjs) //循环分录
                 for (int i2 = 0; i2 < entryDynObjs.Count; i2++)
                 {
@@ -80,12 +82,14 @@ namespace MLD.LHF.PRD.Service.PlugIn
                     long sBillId = Int64.Parse(linkObjs[0]["SBillId"].ToString()); //来源单据内码
                     long sId = Int64.Parse(linkObjs[0]["SId"].ToString());//来源分录内码
                     var sRealQty = decimal.Parse(Convert.ToString(field.DynamicProperty.GetValue(rowObj))); //得到字段在此分录下的值
-                    if (sRealQty > splitNumber) //如果值大于行拆分值
-                    {
-                        var rowCount = (int)(sRealQty % splitNumber > 0 ? sRealQty / splitNumber : sRealQty / splitNumber - 1); //需要新增拆分的行数
-                        decimal leaveValue = sRealQty - splitNumber * rowCount; //剩余值
-                        dicSplitInfo.Add(rowIndex, Tuple.Create(rowCount, leaveValue, sBillId, sId));
-                    }
+                    //if (sRealQty > splitNumber) //如果值大于行拆分值
+                    //{
+                    //    var rowCount = (int)(sRealQty % splitNumber > 0 ? sRealQty / splitNumber : sRealQty / splitNumber - 1); //需要新增拆分的行数
+                    //    decimal leaveValue = sRealQty - splitNumber * rowCount; //剩余值
+                    //    dicSplitInfo.Add(rowIndex, Tuple.Create(rowCount, leaveValue, sBillId, sId));
+                    //}
+                    List<LabelReq> entrylabelReqs = labelReqsMap[sId];
+                    dicSplitInfo.Add(rowIndex, Tuple.Create(entrylabelReqs.Count - 1, 0m, sBillId, sId, entrylabelReqs));
                     //复制拆分行,并设置拆分值
                     int offsetRow = 0; //偏移数
                     
@@ -93,7 +97,15 @@ namespace MLD.LHF.PRD.Service.PlugIn
                     {
                         rowIndex = item.Key + offsetRow; //原分录行索引加偏移量在变动的数据包中的索引
                         var dynObj = entryDynObjs[rowIndex]; //原原分录行数据包
-                        tView.Model.SetValue(field, dynObj, splitNumber); //这字段值并且会触发值更新事件
+                        List<LabelReq> listLabelReq = item.Value.Item5;
+
+                        DynamicObject lot = new DynamicObject(lotField.RefFormDynamicObjectType);
+                        lot["Number"] = listLabelReq[0].Label;
+                        tView.Model.SetValue(lotField, dynObj, lot);
+                        tView.InvokeFieldUpdateService(field.Key, rowIndex);
+                        tView.Model.SetValue(field, dynObj, listLabelReq[0].Qty);
+                        //tView.Model.SetValue(field, dynObj, splitNumber); //这字段值并且会触发值更新事件
+
                         tView.InvokeFieldUpdateService(field.Key, rowIndex); //调用实体服务规则
                         offsetRow = 0; //偏移量重置
                         for (int i = 0; i < item.Value.Item1; i++)
@@ -102,7 +114,13 @@ namespace MLD.LHF.PRD.Service.PlugIn
                             int newRowIndex = rowIndex + offsetRow + 1; //新分录行索引
                             var fValue = i == item.Value.Item1 - 1 ? (item.Value.Item2 == 0 ? splitNumber : item.Value.Item2) : splitNumber;
                             //对单据体进行赋值
-                            tView.Model.SetValue(field, entryDynObjs[newRowIndex], fValue); //这字段值并且会触发值更新事件
+                            //tView.Model.SetValue(field, entryDynObjs[newRowIndex], fValue); //这字段值并且会触发值更新事件
+                            DynamicObject lotF = new DynamicObject(lotField.RefFormDynamicObjectType);
+                            lotF["Number"] = listLabelReq[i + 1].Label;
+                            tView.Model.SetValue(lotField, entryDynObjs[newRowIndex], lotF);
+                            tView.InvokeFieldUpdateService(field.Key, newRowIndex);
+                            tView.Model.SetValue(field, entryDynObjs[newRowIndex], listLabelReq[i+1].Qty);
+
                             tView.InvokeFieldUpdateService(field.Key, newRowIndex); //调用实体服务规则
                                                                                     //关联数据包的处理
                                                                                     //处理关联数据包
