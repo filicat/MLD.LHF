@@ -147,7 +147,7 @@ namespace MLD.LHF.SCM.PUR.ServicePlugin
                         string errorMessageTemplate = $"单据编号为【{et.BillNo}】的单据保存（预算校验）不通过，OA计划单号【{OAPlanNo}】";
                         if (!skipYMChk)
                         {
-                            errorMessageTemplate += "在年月【{appDate}】中";
+                            errorMessageTemplate += $"在年月【{appDate}】中";
                         }
                         errorMessageTemplate += "不存在！";
                         KeyValuePair<ExtendedDataEntity, ValidationErrorInfo> error = new KeyValuePair<ExtendedDataEntity, ValidationErrorInfo>

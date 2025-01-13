@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLD.LHF.SUB.ServicePlugin.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLD.LHF.ENG.ServicePlugin.BOM", "MLD.LHF.ENG.ServicePlugin.BOM\MLD.LHF.ENG.ServicePlugin.BOM.csproj", "{92B56B71-D698-4040-8A76-A2B07D570B15}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLD.LHF.PRD.PrdLabelBusinessPlugIn", "MLD.LHF.PRD.ProLabelBusinessPlugIn\MLD.LHF.PRD.PrdLabelBusinessPlugIn.csproj", "{6F928F83-58D6-4608-8F28-C0AF7CD77696}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLD.LHF.PRD.Service.PlugIn", "MLD.LHF.PRD.Service.PlugIn\MLD.LHF.PRD.Service.PlugIn.csproj", "{B2E79F1D-9513-4CDC-883C-6A328CF07919}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{92B56B71-D698-4040-8A76-A2B07D570B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92B56B71-D698-4040-8A76-A2B07D570B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92B56B71-D698-4040-8A76-A2B07D570B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F928F83-58D6-4608-8F28-C0AF7CD77696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F928F83-58D6-4608-8F28-C0AF7CD77696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F928F83-58D6-4608-8F28-C0AF7CD77696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F928F83-58D6-4608-8F28-C0AF7CD77696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2E79F1D-9513-4CDC-883C-6A328CF07919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E79F1D-9513-4CDC-883C-6A328CF07919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E79F1D-9513-4CDC-883C-6A328CF07919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E79F1D-9513-4CDC-883C-6A328CF07919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
