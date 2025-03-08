@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2E79F1D-9513-4CDC-883C-6A328CF07919}</ProjectGuid>
+    <ProjectGuid>{01D1C7C1-9AB2-48EF-B340-6B77C67BD4F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MLD.LHF.PRD.Service.PlugIn</RootNamespace>
-    <AssemblyName>MLD.LHF.PRD.Service.PlugIn</AssemblyName>
+    <RootNamespace>MLD.LHF.SAL.Service.PlugIn</RootNamespace>
+    <AssemblyName>MLD.LHF.SAL.Service.PlugIn</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -34,8 +34,14 @@
     <Reference Include="Kingdee.BOS">
       <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.dll</HintPath>
     </Reference>
+    <Reference Include="Kingdee.BOS.AOP">
+      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.AOP.dll</HintPath>
+    </Reference>
     <Reference Include="Kingdee.BOS.App">
       <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.App.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Cabinet">
+      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.Cabinet.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.BOS.Contracts">
       <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.Contracts.dll</HintPath>
@@ -46,14 +52,25 @@
     <Reference Include="Kingdee.BOS.DataEntity">
       <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.DataEntity.dll</HintPath>
     </Reference>
+    <Reference Include="Kingdee.BOS.Model">
+      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceFacade.Common">
+      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.ServiceFacade.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceFacade.KDServiceFx">
+      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.ServiceFacade.KDServiceFx.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceFacade.ServicesStub">
+      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.ServiceFacade.ServicesStub.dll</HintPath>
+    </Reference>
     <Reference Include="Kingdee.BOS.ServiceHelper">
       <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
     </Reference>
-    <Reference Include="Kingdee.K3.BD.ServiceHelper">
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.K3.BD.ServiceHelper.dll</HintPath>
+    <Reference Include="Kingdee.BOS.WebApi.ServicesStub">
+      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.WebApi.ServicesStub.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -65,11 +82,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrdInStkConvertSplitRow.cs" />
+    <Compile Include="SalSoutConvertMoLabelSplitRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64ABEF80-8A11-4377-95BB-2850D5C66036}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MLD.LHF.JZC.ZL.MLD.Sale.Buiness.Bill.PlugIn</RootNamespace>
+    <AssemblyName>MLD.LHF.JZC.ZL.MLD.Sale.Buiness.Bill.PlugIn</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Kingdee.BOS">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.AOP">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.AOP.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.App">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.App.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.App.Core">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.App.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Cabinet">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Cabinet.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Contracts">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Core">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.DataEntity">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.DataEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Model">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceFacade.Common">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.ServiceFacade.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceFacade.KDServiceFx">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.ServiceFacade.KDServiceFx.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceFacade.ServicesStub">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.ServiceFacade.ServicesStub.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceHelper">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.WebApi.FormService">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.WebApi.FormService.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.WebApi.ServicesStub">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.WebApi.ServicesStub.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.NewCode.Extension">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.NewCode.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.NewCode.Packager.ServicesStub">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.NewCode.Packager.ServicesStub.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.SCM.Business.PlugIn">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.SCM.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.ServiceFacde.KDServiceClient">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.ServiceFacde.KDServiceClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.ServiceHelper">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.WebAPI.ServiceStub">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.WebAPI.ServiceStub.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.Core">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.FA.App.Report">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.FIN.FA.App.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.App.Stock.Report">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.SCM.App.Stock.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\SDK\kd_bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MuiPartBuinessTempBillPlugIn.cs" />
+    <Compile Include="MuiPartBuinessTempSaveOperation.cs" />
+    <Compile Include="OutStockAuditOperation.cs" />
+    <Compile Include="OutStockBillPlugIn.cs" />
+    <Compile Include="OutStockEntryModel.cs" />
+    <Compile Include="OutStockUnAuditOperation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReturnStockAuditOperation.cs" />
+    <Compile Include="ReturnStockUnAuditOperation.cs" />
+    <Compile Include="SaleCommonBillPlugIn.cs" />
+    <Compile Include="SaleCommonListPlugIn.cs" />
+    <Compile Include="SaleOrderBillPlugIn.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

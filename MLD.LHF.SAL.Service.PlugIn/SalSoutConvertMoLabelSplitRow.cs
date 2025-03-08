@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using Kingdee.BOS;
-using Kingdee.BOS.Core;
+﻿using Kingdee.BOS.Core;
 using Kingdee.BOS.DataEntity;
 using Kingdee.BOS.Core.Bill;
 using Kingdee.BOS.Contracts;
@@ -23,12 +17,17 @@ using Kingdee.BOS.Core.Metadata.ConvertElement.PlugIn.Args;
 using Kingdee.BOS.Orm.Metadata.DataEntity;
 using Newtonsoft.Json;
 using Kingdee.BOS.App;
+using System.ComponentModel;
+using System.Collections.Generic;
+using System.Linq;
+using System;
+using Kingdee.BOS;
 
-namespace MLD.LHF.PRD.Service.PlugIn
+namespace MLD.LHF.SAL.Service.PlugIn
 {
     [Kingdee.BOS.Util.HotUpdate]
-    [Description("lhf生产汇报到生产入库单转换插件-按标签拆行")]
-    public class PrdInStkConvertSplitRow : AbstractConvertPlugIn
+    [Description("lhf发货通知到销售出库单转换插件-按标签发货")]
+    public class SalSoutConvertMoLabelSplitRow : AbstractConvertPlugIn
     {
         public class LabelReq
         {
@@ -56,8 +55,7 @@ namespace MLD.LHF.PRD.Service.PlugIn
                 .ToDictionary(group => group.Key, group => group.ToList()); // 转换为字典
             if (labelReqs.IsEmpty()) return; //分录行拆分数量
             var field = e.TargetBusinessInfo.GetField("FRealQty"); //基本单据数量字段
-            LotField lotField = (LotField) e.TargetBusinessInfo.GetField("FLot");
-            //BaseDataField stockField = e.TargetBusinessInfo.GetField("FStockId") as BaseDataField;
+            LotField lotField = (LotField)e.TargetBusinessInfo.GetField("FLot");
 
             var entryEntity = field.Entity; //字段所在的单据体
             //得到单据数据包扩展集合
@@ -83,21 +81,10 @@ namespace MLD.LHF.PRD.Service.PlugIn
                     long sBillId = Int64.Parse(linkObjs[0]["SBillId"].ToString()); //来源单据内码
                     long sId = Int64.Parse(linkObjs[0]["SId"].ToString());//来源分录内码
                     var sRealQty = decimal.Parse(Convert.ToString(field.DynamicProperty.GetValue(rowObj))); //得到字段在此分录下的值
-                    //if (sRealQty > splitNumber) //如果值大于行拆分值
-                    //{
-                    //    var rowCount = (int)(sRealQty % splitNumber > 0 ? sRealQty / splitNumber : sRealQty / splitNumber - 1); //需要新增拆分的行数
-                    //    decimal leaveValue = sRealQty - splitNumber * rowCount; //剩余值
-                    //    dicSplitInfo.Add(rowIndex, Tuple.Create(rowCount, leaveValue, sBillId, sId));
-                    //}
                     List<LabelReq> entrylabelReqs = labelReqsMap[sId];
                     dicSplitInfo.Add(rowIndex, Tuple.Create(entrylabelReqs.Count - 1, 0m, sBillId, sId, entrylabelReqs));
                     //复制拆分行,并设置拆分值
                     int offsetRow = 0; //偏移数
-                    //long stockId = 111785;
-                    //IViewService viewService = ServiceHelper.GetService<IViewService>();
-                    //DynamicObject[] stockObjs = viewService.LoadFromCache(this.Context, new object[] { stockId }, stockField.RefFormDynamicObjectType);
-                    //stockField.RefIDDynamicProperty.SetValue(billDynObj, stockId);
-                    //stockField.DynamicProperty.SetValue(billDynObj, stockObjs[0]);
 
                     foreach (var item in dicSplitInfo)
                     {
@@ -117,7 +104,6 @@ namespace MLD.LHF.PRD.Service.PlugIn
                             tView.Model.CopyEntryRowFollowCurrent(field.Entity.Key, rowIndex + offsetRow, rowIndex, true); //rowIndex + offsetRow+1插入的位置；rowIndex复制行的位置;true,复制关联关系
                             int newRowIndex = rowIndex + offsetRow + 1; //新分录行索引
                             //对单据体进行赋值
-                            //tView.Model.SetValue(field, entryDynObjs[newRowIndex], fValue); //这字段值并且会触发值更新事件
                             tView.Model.SetValue(lotField, entryDynObjs[newRowIndex], listLabelReq[i + 1].Label);
                             tView.InvokeFieldUpdateService(lotField.Key, newRowIndex);
 
