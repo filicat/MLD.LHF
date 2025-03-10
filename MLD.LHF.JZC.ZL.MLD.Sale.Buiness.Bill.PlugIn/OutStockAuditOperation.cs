@@ -63,7 +63,7 @@ namespace MLD.LHF.JZC.ZL.MLD.Sale.Buiness.Bill.PlugIn
                             outStock.muiPartBuinessTmp = obj["F_MLD_MuiPartBuinessTmp"] as DynamicObject;
                             String currencyType = Convert.ToString(outStock.muiPartBuinessTmp["F_MILD_CurrencyType"]);
                             bool useSettleCurr = StringComparer.OrdinalIgnoreCase.Equals("YB", currencyType);
-                            String currField = useSettleCurr ? "FSettleCurrID" : "LocalCurrID";
+                            String currField = useSettleCurr ? "SettleCurrID" : "LocalCurrID";
                             outStock.currNumber = getBaseDataNumber(finObj[currField]).ToString();
                             OutStockModel.OutStockEntryModel outStockEntry = new OutStockModel.OutStockEntryModel();
                             outStockEntry.materialNumber = getBaseDataNumber(obj["MaterialID"]).ToString();

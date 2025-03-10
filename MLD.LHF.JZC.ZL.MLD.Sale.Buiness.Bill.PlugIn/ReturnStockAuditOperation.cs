@@ -64,13 +64,16 @@ namespace MLD.LHF.JZC.ZL.MLD.Sale.Buiness.Bill.PlugIn
                                 outStock.billNo = item["billNo"].ToString();
                                 outStock.date = item["Date"].ToString();
                                 outStock.muiPartBuinessTmp = obj["F_MLD_MuiPartBuinessTmp"] as DynamicObject;
+                                String currencyType = Convert.ToString(outStock.muiPartBuinessTmp["F_MILD_CurrencyType"]);
+                                bool useSettleCurr = StringComparer.OrdinalIgnoreCase.Equals("YB", currencyType);
+                                String currField = useSettleCurr ? "SettleCurrID" : "LocalCurrID";
+                                outStock.currNumber = getBaseDataNumber(finObj[currField]).ToString();
                                 outStock.stockOrgNumber = getBaseDataNumber(item["StockOrgId"]).ToString();
-                                outStock.currNumber = getBaseDataNumber(finObj["LocalCurrID"]).ToString();
                                 decimal exchangeRate = Convert.ToDecimal(finObj["ExchangeRate"]);
                                 OutStockModel.OutStockEntryModel outStockEntry = new OutStockModel.OutStockEntryModel();
                                 outStockEntry.materialNumber = getBaseDataNumber(obj["MaterialID"]).ToString();
                                 outStockEntry.qty = Convert.ToDecimal(obj["RealQty"]);
-                                outStockEntry.price = Math.Round(Convert.ToDecimal(obj["Price"]) * exchangeRate, 6);
+                                outStockEntry.price = useSettleCurr ? Convert.ToDecimal(obj["Price"]) : Math.Round(Convert.ToDecimal(obj["Price"]) * exchangeRate, 6);
                                 outStockEntry.freeFlag = Convert.ToBoolean(obj["IsFree"]);
                                 if (obj["StockLocID_Id"] != null && Convert.ToInt32(obj["StockLocID_Id"]) != 0)
                                 {
