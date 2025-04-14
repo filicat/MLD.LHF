@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6F928F83-58D6-4608-8F28-C0AF7CD77696}</ProjectGuid>
+    <ProjectGuid>{C612B364-DD87-4512-9982-BA3FE3141939}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MLD.LHF.PRD.PrdLabelBusinessPlugIn</RootNamespace>
-    <AssemblyName>MLD.LHF.PRD.PrdLabelBusinessPlugIn</AssemblyName>
+    <RootNamespace>MLD.LHF.YXQ.MFG.PRD.Report.PlugIn</RootNamespace>
+    <AssemblyName>MLD.LHF.YXQ.MFG.PRD.Report.PlugIn</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -37,26 +37,23 @@
     <Reference Include="Kingdee.BOS.App">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.App.dll</HintPath>
     </Reference>
+    <Reference Include="Kingdee.BOS.Contracts">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Contracts.dll</HintPath>
+    </Reference>
     <Reference Include="Kingdee.BOS.Core">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Core.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.BOS.DataEntity">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.DataEntity.dll</HintPath>
     </Reference>
-    <Reference Include="Kingdee.BOS.Model">
-      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Kingdee.BOS.ServiceFacade.Common">
-      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.ServiceFacade.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Kingdee.BOS.ServiceHelper">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
     </Reference>
-    <Reference Include="Kingdee.K3.BD.ServiceFacde.ServiceStub">
-      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.ServiceFacde.ServiceStub.dll</HintPath>
+    <Reference Include="Kingdee.BOS.Web">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Kingdee.K3.Core">
-      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.Core.dll</HintPath>
+    <Reference Include="Kingdee.BOS.WebApi.Client">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.WebApi.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,11 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrdLabelBusinessPlugIn.cs" />
+    <Compile Include="MLD_ZXJH\SHZXJH.cs" />
+    <Compile Include="MLD_ZXJH\ZZPZXJH.cs" />
+    <Compile Include="POTZ_InventorySchedule\FbillnoSelect.cs" />
+    <Compile Include="POTZ_InventorySchedule\InProcessFbillnoSelect.cs" />
+    <Compile Include="POTZ_InventorySchedule\OrganizationSelect.cs" />
+    <Compile Include="POTZ_InventorySchedule\Wastage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
