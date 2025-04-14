@@ -4,7 +4,6 @@ using Kingdee.BOS.Core.DynamicForm;
 using Kingdee.BOS.Core.DynamicForm.PlugIn.Args;
 using Kingdee.BOS.Core.List;
 using Kingdee.BOS.Core.Metadata.EntityElement;
-using Kingdee.BOS.Core.Metadata.FieldElement;
 using Kingdee.BOS.Orm.DataEntity;
 using Kingdee.BOS.ServiceFacade;
 using Kingdee.BOS.ServiceHelper;
@@ -28,6 +27,8 @@ namespace MLD.LHF.PRD.PrdLabelBusinessPlugIn
         private const string PrdQty_FK = "F_MLD_PrdQty";
         private const string LABEL_SN_FK = "F_MLD_LABEL_SN";
         private const string PackageQty_FK = "F_MLD_PackageQty";
+        private const string CUSTPO_FK = "F_MLD_CUSTPO";
+        private const string CUSTPO_FK_ENTRY = "F_MLD_CUSTPO1";
         private const int SERIAL_LEN = 6;
         private const string Entity_Key = "FEntity";
 
@@ -123,6 +124,7 @@ namespace MLD.LHF.PRD.PrdLabelBusinessPlugIn
                 int perRowQty = entryRows.Count;
                 string ymd = billDate.ToString("yyMMdd");
                 maxSerial = Math.Max(maxSerial, GetDBMaxSerial((long)org["Id"], ymd));
+                string custpo = (string)Model.GetValue(CUSTPO_FK);
                 Model.BatchCreateNewEntryRow(Entity_Key, packageQty);
                 //string msg = "";
                 for (int i = 0; i < packageQty; i++)
@@ -137,8 +139,10 @@ namespace MLD.LHF.PRD.PrdLabelBusinessPlugIn
                     {
                         base.Model.SetValue(PackageQty_FK, perQty, idx);
                     }
+                    base.Model.SetValue(CUSTPO_FK_ENTRY, custpo, idx);
                     this.View.UpdateView(LABEL_SN_FK, idx);
                     this.View.UpdateView(PackageQty_FK, idx);
+                    this.View.UpdateView(CUSTPO_FK_ENTRY, idx);
                 }
                 //View.ShowMessage(msg);
             }

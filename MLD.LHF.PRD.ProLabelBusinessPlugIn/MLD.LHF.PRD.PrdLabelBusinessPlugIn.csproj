@@ -32,30 +32,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Kingdee.BOS">
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.dll</HintPath>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.BOS.App">
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.App.dll</HintPath>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.App.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.BOS.Core">
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.Core.dll</HintPath>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Core.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.BOS.DataEntity">
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.DataEntity.dll</HintPath>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.DataEntity.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.BOS.Model">
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.Model.dll</HintPath>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Model.dll</HintPath>
     </Reference>
-    <Reference Include="Kingdee.BOS.ServiceFacade.Common, Version=8.2.886.8, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.ServiceFacade.Common.dll</HintPath>
+    <Reference Include="Kingdee.BOS.ServiceFacade.Common">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.ServiceFacade.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Kingdee.BOS.ServiceHelper, Version=8.2.886.8, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
+    <Reference Include="Kingdee.BOS.ServiceHelper">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.K3.BD.ServiceFacde.ServiceStub">
-      <HintPath>..\..\..\..\Tools\K3Cloud_V8.2\WebSite\bin\Kingdee.K3.BD.ServiceFacde.ServiceStub.dll</HintPath>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.ServiceFacde.ServiceStub.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.Core">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,6 +69,9 @@
   <ItemGroup>
     <Compile Include="PrdLabelBusinessPlugIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
