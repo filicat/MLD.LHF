@@ -19,14 +19,14 @@ namespace MLD.LHF.Demo.Plugin.FilterPlugin
             if (this.View.ParentFormView != null &&
                 this.View.ParentFormView.BillBusinessInfo.GetForm().Id.EqualsIgnoreCase("PUR_PurchaseOrder"))
             {
-                //if (e.FieldKey.StartsWith("FSupplierId"))
-                //{
-                //    e.ListFilterParameter.Filter = e.ListFilterParameter.Filter.JoinFilterString(" FNumber like '02.%' ");
-                //    return;
-                //}
+                if (e.FieldKey.StartsWith("FSupplierId"))
+                {
+                    e.ListFilterParameter.Filter = e.ListFilterParameter.Filter.JoinFilterString(" FNumber like '02.%' ");
+                    return;
+                }
                 if (e.FieldKey.StartsWith("FPurchaseDeptId"))
                 {
-                    e.ListFilterParameter.Filter = e.ListFilterParameter.Filter.JoinFilterString(" FNumber like '11.2%'");
+                    e.ListFilterParameter.Filter = e.ListFilterParameter.Filter.JoinFilterString(" FNumber like '11.%'");
                     return;
                 }
             }
