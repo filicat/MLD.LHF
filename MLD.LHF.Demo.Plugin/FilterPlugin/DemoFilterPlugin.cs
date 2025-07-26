@@ -24,7 +24,7 @@ namespace MLD.LHF.Demo.Plugin.FilterPlugin
                 //    e.ListFilterParameter.Filter = e.ListFilterParameter.Filter.JoinFilterString(" FNumber like '02.%' ");
                 //    return;
                 //}
-                if (e.FieldKey.StartsWith("FPurchaseDepId"))
+                if (e.FieldKey.StartsWith("FPurchaseDeptId"))
                 {
                     e.ListFilterParameter.Filter = e.ListFilterParameter.Filter.JoinFilterString(" FNumber like '11.2%'");
                     return;
