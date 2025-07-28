@@ -22,6 +22,8 @@ namespace MLD.LHF.Demo.Plugin.ServicePlugin
             DemoValidator demoValidator = new DemoValidator();
             demoValidator.AlwaysValidate = true;
 
+            demoValidator.EntityKey = "FBillHead";
+
             e.Validators.Add(demoValidator);
         }
 
