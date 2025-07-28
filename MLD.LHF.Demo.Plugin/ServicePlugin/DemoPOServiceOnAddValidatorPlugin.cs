@@ -31,12 +31,12 @@ namespace MLD.LHF.Demo.Plugin.ServicePlugin
             {
                 foreach (ExtendedDataEntity obj in dataEntities)
                 {
-                    object purchaserId = obj.DataEntity["FPurchaseDeptId"];
+                    object purchaserId = obj.DataEntity["PurchaseDeptId"];
                     if (null == purchaserId)
                     {
                         validateContext.AddError(obj.DataEntity,
                             new ValidationErrorInfo(
-                                "FPurchaseDeptId", // 出现错误的字段, 可以为空
+                                "PurchaseDeptId", // 出现错误的字段, 可以为空
                                 obj.DataEntity["Id"].ToString(),
                                 obj.DataEntityIndex,
                                 obj.RowIndex,
