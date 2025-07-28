@@ -114,7 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BillPlugin\DemoPOBillPlugin.cs" />
+    <Compile Include="FilterPlugin\DemoCommonFilterPlugIn.cs" />
     <Compile Include="FilterPlugin\DemoFilterPlugin.cs" />
+    <Compile Include="FormBuilderPlugin\DemoFormBuilderPlugIn.cs" />
     <Compile Include="ListPlugin\DemoPOListPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicePlugin\DemoPOServiceOnAddValidatorPlugin.cs" />

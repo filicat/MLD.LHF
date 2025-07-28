@@ -9,7 +9,7 @@ using System.Text;
 
 namespace MLD.LHF.Demo.Plugin.FilterPlugin
 {
-    [HotUpdate, Description("[过滤插件]Demo过滤插件:列表过滤窗体上查询查询基础资料时设置过滤条件")]
+    [HotUpdate, Description("[过滤插件]Demo列表过滤插件:列表过滤窗体上查询查询基础资料时设置过滤条件")]
     public class DemoFilterPlugin : AbstractListFilterPlugIn
     {
         public override void BeforeFilterGridF7Select(BeforeFilterGridF7SelectEventArgs e)
