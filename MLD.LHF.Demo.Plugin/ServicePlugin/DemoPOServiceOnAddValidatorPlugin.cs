@@ -31,17 +31,22 @@ namespace MLD.LHF.Demo.Plugin.ServicePlugin
             {
                 foreach (ExtendedDataEntity obj in dataEntities)
                 {
-                    object purchaserId = obj.DataEntity["PurchaseDeptId"];
-                    if (null == purchaserId)
+                    //object purchaserId = obj.DataEntity["F_POTZ_Remarks_BZ"];
+                    string remarks = string.Empty;
+                    if (obj.DataEntity.TryGetValue("F_POTZ_Remarks_BZ", out var value) && value != null)
+                    {
+                        remarks = value.ToString();
+                    }
+                    if (string.IsNullOrWhiteSpace(remarks))
                     {
                         validateContext.AddError(obj.DataEntity,
                             new ValidationErrorInfo(
-                                "PurchaseDeptId", // 出现错误的字段, 可以为空
+                                "F_POTZ_Remarks_BZ", // 出现错误的字段, 可以为空
                                 obj.DataEntity["Id"].ToString(),
                                 obj.DataEntityIndex,
                                 obj.RowIndex,
                                 "DEMO_001",
-                                "单据编号" + obj.BillNo + "采购订单没有录入采购部门",
+                                "单据编号" + obj.BillNo + "备注为空",
                                 "提交" + obj.BillNo,
                                 ErrorLevel.Error
                                 ));
