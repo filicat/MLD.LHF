@@ -1,4 +1,5 @@
 ﻿using Kingdee.BOS.Core.Bill.PlugIn;
+using Kingdee.BOS.Core.DynamicForm;
 using Kingdee.BOS.Core.DynamicForm.PlugIn.Args;
 using Kingdee.BOS.Util;
 using System;
@@ -42,6 +43,14 @@ namespace MLD.LHF.Demo.Plugin.BillPlugin
             {
                 this.View.Model.SetValue("FSupplierId", 1317586); // TODO
                 this.View.UpdateView("FSupplierId"); // TODO
+            }
+
+            if (e.BarItemKey.EqualsIgnoreCase("POTZ_DEMO_BTN5"))
+            {
+                DynamicFormShowParameter formPa = new DynamicFormShowParameter();
+                formPa.FormId = "POTZ_LHFDEMO_PO";
+                formPa.CustomParams.Add("POID", Convert.ToString(this.View.Model.DataObject["ID"]));
+                this.View.ShowForm(formPa);
             }
         }
 

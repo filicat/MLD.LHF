@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BillPlugin\DemoPOBillPlugin.cs" />
+    <Compile Include="DynamicFormPlugin\DemoDynamicFormPlugin.cs" />
     <Compile Include="FilterPlugin\DemoCommonFilterPlugIn.cs" />
     <Compile Include="FilterPlugin\DemoFilterPlugin.cs" />
     <Compile Include="FormBuilderPlugin\DemoFormBuilderPlugIn.cs" />

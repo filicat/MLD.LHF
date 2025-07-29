@@ -10,7 +10,7 @@ using System.Text;
 
 namespace MLD.LHF.Demo.Plugin.FormBuilderPlugin
 {
-    [HotUpdate, Description("[表单构建插件]多行文本控件输入字数提示")]
+    [HotUpdate, Description("[表单构建插件]多行文本控件输入字数提示; 面板背景图设置")]
     public class DemoFormBuilderPlugIn : AbstractDynamicWebFormBuilderPlugIn
     {
         public override void CreateControl(CreateControlEventArgs e)
@@ -26,6 +26,10 @@ namespace MLD.LHF.Demo.Plugin.FormBuilderPlugin
                     item["maxLength"] = maxLength; // 设置控件可输入的字符的最大数量
                     item["TipWordTemplate"] = "字数: 当前输入{EDITEDNUMBER}/" + maxLength + "行: {LINESELECTION}列:{LINECHARTSELECTION}当前位置字符: {CHARTSELECTION}";
                 }
+            }
+            if (e.ControlAppearance.Key.EqualsIgnoreCase("F_POTZ_Panel_1"))
+            {
+                e.Control["backgroundimage"] = "https://img.shetu66.com/2023/07/04/1688453333865029.png";
             }
         }
     }
