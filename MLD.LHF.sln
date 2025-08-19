@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.34601.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLD.LHF.SCM.PUR.ServicePlugin", "MLD.LHF.SCM.PUR.ServicePlugin\MLD.LHF.SCM.PUR.ServicePlugin.csproj", "{DA6F8A24-DFE9-42B0-8021-0214416F139B}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLD.LHF.MFG.SUB.App.ReportIn", "MLD.LHF.MFG.SUB.App.ReportIn\MLD.LHF.MFG.SUB.App.ReportIn.csproj", "{E42FD0C1-0F41-49EA-BA65-D408C510D2E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLD.LHF.Demo.Plugin", "MLD.LHF.Demo.Plugin\MLD.LHF.Demo.Plugin.csproj", "{F91F4DD0-E463-401A-AD3A-13C3AE4490E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLD.LHF.SCM.Service.PlugIn", "MLD.LHF.SCM.Service.PlugIn\MLD.LHF.SCM.Service.PlugIn.csproj", "{2A489468-BEB2-4DE1-928D-C34FE048324C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{F91F4DD0-E463-401A-AD3A-13C3AE4490E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F91F4DD0-E463-401A-AD3A-13C3AE4490E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F91F4DD0-E463-401A-AD3A-13C3AE4490E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A489468-BEB2-4DE1-928D-C34FE048324C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A489468-BEB2-4DE1-928D-C34FE048324C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A489468-BEB2-4DE1-928D-C34FE048324C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A489468-BEB2-4DE1-928D-C34FE048324C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
