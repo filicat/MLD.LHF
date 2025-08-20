@@ -53,7 +53,7 @@ namespace MLD.LHF.SCM.Service.PlugIn.PurchaseOrder.Validator
                     }
                     if (string.IsNullOrWhiteSpace(oaStrategyBill))
                     {
-                        ValidatorAddError(validateContext, obj, "MLD-ERRCODE_001", "单据编号" + obj.BillNo + "OA采购策略单号为空");
+                        ValidatorAddError(validateContext, obj, "MLD-ERRCODE_001", "OA采购策略单号为空");
                     } else
                     {
                         string sql = $@"SELECT TOP 1 1 
@@ -63,7 +63,7 @@ namespace MLD.LHF.SCM.Service.PlugIn.PurchaseOrder.Validator
                         DataTable dataTable = exe_Query(sql);
                         if (dataTable.Rows.Count == 0)
                         {
-                            string msg = $@"单据编号{obj.BillNo}OA采购策略单号{oaStrategyBill}在OA不存在";
+                            string msg = $@"OA采购策略单号[{oaStrategyBill}]在OA不存在";
                             ValidatorAddError(validateContext, obj, "MLD-ERRCODE_002", msg);
                         }
                     }
