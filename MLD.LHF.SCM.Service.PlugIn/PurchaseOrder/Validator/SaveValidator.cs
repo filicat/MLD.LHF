@@ -17,11 +17,11 @@ namespace MLD.LHF.SCM.Service.PlugIn.PurchaseOrder.Validator
     [HotUpdate, Description("[校验插件]校验采购订单的OA采购策略单号")]
     public class SaveValidator : AbstractOperationServicePlugIn
     {
-        public override void OnPreparePropertys(PreparePropertysEventArgs e)
-        {
-            base.OnPreparePropertys(e);
-            e.FieldKeys.Add("F_MLD_PurStrategy_BillNo");
-        }
+        //public override void OnPreparePropertys(PreparePropertysEventArgs e)
+        //{
+        //    base.OnPreparePropertys(e);
+        //    e.FieldKeys.Add("F_MLD_PurStrategy_BillNo");
+        //}
 
         public override void OnAddValidators(AddValidatorsEventArgs e)
         {
@@ -30,7 +30,7 @@ namespace MLD.LHF.SCM.Service.PlugIn.PurchaseOrder.Validator
             OaStrategyBillValidator validator = new OaStrategyBillValidator();
             validator.AlwaysValidate = true;
 
-            validator.EntityKey = "F_MLD_PurStrategy_BillNo";
+            validator.EntityKey = "FBillHead";
 
             e.Validators.Add(validator);
         }
