@@ -27,18 +27,22 @@ namespace MLD.LHF.SCM.Service.PlugIn.PurchaseOrder.Validator
         {
             base.OnAddValidators(e);
 
-            OaStrategyBillValidator oaStrategyBillValidator = new OaStrategyBillValidator();
-            oaStrategyBillValidator.AlwaysValidate = true;
+            OaStrategyBillValidator validator = new OaStrategyBillValidator();
+            validator.AlwaysValidate = true;
 
-            oaStrategyBillValidator.EntityKey = "F_MLD_PurStrategy_BillNo";
+            validator.EntityKey = "F_MLD_PurStrategy_BillNo";
 
-            e.Validators.Add(oaStrategyBillValidator);
+            e.Validators.Add(validator);
         }
 
         private class OaStrategyBillValidator : AbstractValidator
         {
             public override void Validate(ExtendedDataEntity[] dataEntities, ValidateContext validateContext, Context ctx)
             {
+                if (dataEntities == null || dataEntities.Length <= 0)
+                {
+                    return;
+                }
                 foreach (ExtendedDataEntity obj in dataEntities)
                 {
                     //object purchaserId = obj.DataEntity["F_POTZ_Remarks_BZ"];
