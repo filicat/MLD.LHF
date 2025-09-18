@@ -55,6 +55,10 @@
     <Reference Include="Kingdee.BOS.DataEntity">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.DataEntity.dll</HintPath>
     </Reference>
+    <Reference Include="Kingdee.BOS.Log, Version=8.2.830.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Log.dll</HintPath>
+    </Reference>
     <Reference Include="Kingdee.BOS.Model">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Model.dll</HintPath>
     </Reference>
@@ -73,6 +77,10 @@
     <Reference Include="Kingdee.BOS.Web">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Web.dll</HintPath>
     </Reference>
+    <Reference Include="Kingdee.BOS.Web.Core, Version=8.2.830.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.Web.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Kingdee.BOS.WebApi.Client">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.WebApi.Client.dll</HintPath>
     </Reference>
@@ -82,20 +90,45 @@
     <Reference Include="Kingdee.BOS.WebApi.ServicesStub">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.BOS.WebApi.ServicesStub.dll</HintPath>
     </Reference>
+    <Reference Include="Kingdee.K3.BD.App.Common.ServicePlugIn">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.App.Common.ServicePlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.App.Core">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.App.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.Business">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.Business.dll</HintPath>
+    </Reference>
     <Reference Include="Kingdee.K3.BD.NewCode.Extension">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.NewCode.Extension.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.K3.BD.NewCode.Packager.ServicesStub">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.NewCode.Packager.ServicesStub.dll</HintPath>
     </Reference>
+    <Reference Include="Kingdee.K3.BD.ServiceFacde.KDServiceClient">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.ServiceFacde.KDServiceClient.dll</HintPath>
+    </Reference>
     <Reference Include="Kingdee.K3.BD.ServiceFacde.ServiceStub">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.ServiceFacde.ServiceStub.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.ServiceHelper">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.ServiceHelper.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.K3.BD.WebAPI.ServiceStub">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.BD.WebAPI.ServiceStub.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.K3.Core">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.App, Version=8.2.830.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.MFG.App.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.BusinessCommon">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.MFG.BusinessCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.ServiceHelper">
+      <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.MFG.ServiceHelper.dll</HintPath>
     </Reference>
     <Reference Include="Kingdee.K3.MFG.SUB.App.ReportPlugIn">
       <HintPath>..\..\..\..\SDK\kd_bin\Kingdee.K3.MFG.SUB.App.ReportPlugIn.dll</HintPath>
@@ -115,6 +148,7 @@
   <ItemGroup>
     <Compile Include="BillPlugin\DemoPOBillPlugin.cs" />
     <Compile Include="DynamicFormPlugin\DemoDynamicFormPlugin.cs" />
+    <Compile Include="DynamicFormPlugin\TestDynamicFormWholeSetPickMtrl.cs" />
     <Compile Include="FilterPlugin\DemoCommonFilterPlugIn.cs" />
     <Compile Include="FilterPlugin\DemoFilterPlugin.cs" />
     <Compile Include="FormBuilderPlugin\DemoFormBuilderPlugIn.cs" />
